@@ -1,0 +1,35 @@
+// Copyright (c) 2018 okawa
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+version: '3.1'
+
+services:
+  wordpress:
+    image: bakudankun/wordpress-ja:latest
+    container_name: wordpress
+    depends_on:
+    - mysql
+    port:s
+    - "8080:80"
+    links:
+    - mysql
+    volumes:
+    - /srv/docker/wordpress/wp-content:/var/www/html/wp-content
+    env_file:
+    - ./env/wordpress.env
+    restart: always
+  mysql:
+    image: mysql:5.7
+    container_name: wordpress-mysql
+    volumes:
+    - /srv/docker/wordpress/mysql:/var/lib/mysql
+    env_file:
+    - ./env/mysql.env
+    restart: always
+
+networks:
+  default:
+    external:
+      name: nginx-proxy_default

@@ -1,0 +1,31 @@
+// Copyright (c) 2018 okawa
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+version: '3'
+
+services:
+  postgresql:
+    image: sameersbn/postgresql:9.6-4
+    container_name: redmine-postgres
+    env_file:
+    - ./env/postgresql.env
+    volumes:
+    - /srv/docker/redmine/postgresql:/var/lib/postgresql
+    restart: always
+  redmine:
+    image: sameersbn/redmine:3.4.6
+    container_name: redmine
+    depends_on:
+    - postgresql
+    env_file:
+    - ./env/redmine.env
+    volumes:
+    - /srv/docker/redmine/redmine:/home/redmine/data
+    restart: always
+
+networks:
+  default:
+    external:
+      name: nginx-proxy_default
