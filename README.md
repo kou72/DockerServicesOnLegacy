@@ -103,8 +103,8 @@ mv -r {theme_folder} /srv/docker/wordpress/wp-content/themes/
 Update Permission
 
 ```shell
-sudo chown www-data /srv/docker/wordpress/wp-content/themes/*
-sudo chgrp www-data /srv/docker/wordPress/volumes/wp-content/themes/*
+sudo chown -R www-data /srv/docker/wordpress/wp-content/themes/
+sudo chgrp -R www-data /srv/docker/wordPress/volumes/wp-content/themes/
 ```
 
 ### Restore Redmine
