@@ -1,10 +1,10 @@
-// Copyright (c) 2018 okawa
-// Referense
-// https://tech.quartetcom.co.jp/2017/04/11/multiple-ssl-apps-on-one-docker-host/
-// Thanks
-// 
-// This software is released under the MIT License.
-// https://opensource.org/licenses/MIT
+# Copyright (c) 2018 okawa
+# Referense
+# https://tech.quartetcom.co.jp/2017/04/11/multiple-ssl-apps-on-one-docker-host/
+# Thanks
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
 
 version: '2'
 
